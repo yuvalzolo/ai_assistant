@@ -58,7 +58,7 @@ async def send_message(chat_id: int, body: schemas.MessageCreate, db: AsyncSessi
 
 @router.get("/{chat_id}/messages", response_model=list[schemas.MessageOut])
 async def list_messages(chat_id: int, db: AsyncSession = Depends(get_db)):
-    chat = await db.get(models.Chat, chat_id, options=[models.Chat.messages])
+    chat = await db.get(models.Chat, chat_id, options=[selectinload(models.Chat.messages)])
     if not chat:
         raise HTTPException(status_code=404, detail="Chat not found")
     return sorted(chat.messages, key=lambda m: m.created_at)
