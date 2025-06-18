@@ -1,0 +1,25 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+
+# Python packaging artifacts
+*.egg-info/
+dist/
+build/
+
+# Environment variables
+.env
+
+# SQLite database
+db.sqlite3
+
+# VSCode / PyCharm project files
+.idea/
+.vscode/
+
+# macOS/Windows/Linux
+.DS_Store
+Thumbs.db
